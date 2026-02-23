@@ -217,9 +217,7 @@ class _YearPickerState extends State<YearPicker> {
     return Column(
       children: <Widget>[
         Divider(
-          color: widget.config.hideYearPickerDividers == true
-              ? Colors.transparent
-              : null,
+          color: widget.config.dividerColors ?? Colors.transparent,
         ),
         Expanded(
           child: GridView.builder(
@@ -230,11 +228,6 @@ class _YearPickerState extends State<YearPicker> {
             itemCount: math.max(_itemCount, minYears),
             padding: const EdgeInsets.symmetric(horizontal: _yearPickerPadding),
           ),
-        ),
-        Divider(
-          color: widget.config.hideYearPickerDividers == true
-              ? Colors.transparent
-              : null,
         ),
       ],
     );

@@ -105,8 +105,8 @@
 ## [1.0.3]
 
 - feat: add `dayMaxWidth` into config
-- feat: add `hideMonthPickerDividers` into config
-- feat: add `hideYearPickerDividers` into config
+- feat: add `dividerColors` into config
+- feat: add `` into config
 
 ## [1.0.2]
 

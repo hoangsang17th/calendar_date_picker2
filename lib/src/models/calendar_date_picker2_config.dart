@@ -66,7 +66,7 @@ typedef YearBuilder = Widget? Function({
   BoxDecoration? decoration,
   bool? isSelected,
   bool? isDisabled,
-  bool? isCurrentYear, 
+  bool? isCurrentYear,
 });
 
 /// Custom builder for the month widget
@@ -90,7 +90,7 @@ typedef ModePickerBuilder = Widget? Function({
   required DateTime monthDate,
   bool? isMonthPicker,
   required bool isMonthOrYearMode,
-      VoidCallback? onPressed,
+  VoidCallback? onPressed,
 });
 
 /// Predicate to determine the day widget box decoration for a day in selected range
@@ -191,8 +191,7 @@ class CalendarDatePicker2Config {
     this.disableMonthPicker,
     this.useAbbrLabelForMonthModePicker,
     this.dayMaxWidth,
-    this.hideMonthPickerDividers,
-    this.hideYearPickerDividers,
+    this.dividerColors,
     this.scrollViewTopHeaderTextStyle,
     this.hideScrollViewTopHeader,
     this.hideScrollViewTopHeaderDivider,
@@ -390,11 +389,8 @@ class CalendarDatePicker2Config {
   /// Max width of day widget. When [dayMaxWidth] is not null, it will override default size settings
   final double? dayMaxWidth;
 
-  /// Flag to hide dividers on month picker
-  final bool? hideMonthPickerDividers;
-
   /// Flag to hide dividers on year picker
-  final bool? hideYearPickerDividers;
+  final Color? dividerColors;
 
   /// Flag to hide top week labels header on scroll view
   final bool? hideScrollViewTopHeader;
@@ -494,9 +490,8 @@ class CalendarDatePicker2Config {
     bool? allowSameValueSelection,
     bool? disableMonthPicker,
     bool? useAbbrLabelForMonthModePicker,
-    double? dayMaxWidth,
-    bool? hideMonthPickerDividers,
-    bool? hideYearPickerDividers,
+    double? dayMaxWidth, 
+    Color? dividerColors,
     TextStyle? scrollViewTopHeaderTextStyle,
     bool? hideScrollViewTopHeader,
     bool? hideScrollViewTopHeaderDivider,
@@ -586,10 +581,7 @@ class CalendarDatePicker2Config {
       useAbbrLabelForMonthModePicker:
           useAbbrLabelForMonthModePicker ?? this.useAbbrLabelForMonthModePicker,
       dayMaxWidth: dayMaxWidth ?? this.dayMaxWidth,
-      hideMonthPickerDividers:
-          hideMonthPickerDividers ?? this.hideMonthPickerDividers,
-      hideYearPickerDividers:
-          hideYearPickerDividers ?? this.hideYearPickerDividers,
+      dividerColors: dividerColors ?? this.dividerColors,
       scrollViewTopHeaderTextStyle:
           scrollViewTopHeaderTextStyle ?? this.scrollViewTopHeaderTextStyle,
       hideScrollViewTopHeader:
@@ -677,8 +669,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     bool? disableMonthPicker,
     bool? useAbbrLabelForMonthModePicker,
     double? dayMaxWidth,
-    bool? hideMonthPickerDividers,
-    bool? hideYearPickerDividers,
+    Color? dividerColors,
     TextStyle? scrollViewTopHeaderTextStyle,
     bool? hideScrollViewTopHeader,
     bool? hideScrollViewTopHeaderDivider,
@@ -758,8 +749,7 @@ class CalendarDatePicker2WithActionButtonsConfig
           disableMonthPicker: disableMonthPicker,
           useAbbrLabelForMonthModePicker: useAbbrLabelForMonthModePicker,
           dayMaxWidth: dayMaxWidth,
-          hideMonthPickerDividers: hideMonthPickerDividers,
-          hideYearPickerDividers: hideYearPickerDividers,
+          dividerColors: dividerColors,
           scrollViewTopHeaderTextStyle: scrollViewTopHeaderTextStyle,
           hideScrollViewTopHeader: hideScrollViewTopHeader,
           hideScrollViewTopHeaderDivider: hideScrollViewTopHeaderDivider,
@@ -869,8 +859,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     bool? disableMonthPicker,
     bool? useAbbrLabelForMonthModePicker,
     double? dayMaxWidth,
-    bool? hideMonthPickerDividers,
-    bool? hideYearPickerDividers,
+    Color? dividerColors,
     TextStyle? scrollViewTopHeaderTextStyle,
     bool? hideScrollViewTopHeader,
     bool? hideScrollViewTopHeaderDivider,
@@ -973,10 +962,7 @@ class CalendarDatePicker2WithActionButtonsConfig
       useAbbrLabelForMonthModePicker:
           useAbbrLabelForMonthModePicker ?? this.useAbbrLabelForMonthModePicker,
       dayMaxWidth: dayMaxWidth ?? this.dayMaxWidth,
-      hideMonthPickerDividers:
-          hideMonthPickerDividers ?? this.hideMonthPickerDividers,
-      hideYearPickerDividers:
-          hideYearPickerDividers ?? this.hideYearPickerDividers,
+      dividerColors: dividerColors ?? this.dividerColors,
       scrollViewTopHeaderTextStyle:
           scrollViewTopHeaderTextStyle ?? this.scrollViewTopHeaderTextStyle,
       hideScrollViewTopHeader:

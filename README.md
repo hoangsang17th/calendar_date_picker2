@@ -182,7 +182,7 @@ var results = await showCalendarDatePicker2Dialog(
 | dayModeScrollDirection           | Axis?                             | Axis scroll direction for [CalendarDatePicker2Mode.day] mode                                                  |
 | monthViewController              | ScrollController?                 | Custom scroll controller for the calendar month view                                                          |
 | monthBuilder                     | MonthBuilder?                     | Function to provide full control over month widget UI                                                         |
-| hideMonthPickerDividers          | bool?                             | Flag to hide dividers on month picker                                                                         |
+| dividerColors          | bool?                             | Flag to hide dividers on month picker                                                                         |
 | selectableMonthPredicate         | SelectableMonthPredicate?         | Function to provide full control over which month in the month list can be selected.                          |
 | disableMonthPicker               | bool?                             | Flag to disable month picker                                                                                  |
 | monthTextStyle                   | TextStyle?                        | Custom text style for month(s)                                                                                |
@@ -195,7 +195,7 @@ var results = await showCalendarDatePicker2Dialog(
 | disabledYearTextStyle            | TextStyle?                        | Custom text style for disabled year(s)                                                                        |
 | selectableYearPredicate          | SelectableYearPredicate?          | Function to provide full control over which year in the year list be selected.                                |
 | yearBuilder                      | YearBuilder?                      | Function to provide full control over year widget UI. Receives `isYearMode` and `isLongPressing` flags.       |
-| hideYearPickerDividers           | bool?                             | Flag to hide dividers on year picker                                                                          |
+|            | bool?                             | Flag to hide dividers on year picker                                                                          |
 | scrollViewTopHeaderTextStyle     | TextStyle?                        | Custom text style for scroll view top week labels header                                                      |
 | hideScrollViewTopHeader          | bool?                             | Flag to hide top week labels header on scroll view picker                                                     |
 | hideScrollViewTopHeaderDivider   | bool?                             | Flag to hide top week labels header divider on scroll view                                                    |
