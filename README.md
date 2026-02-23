@@ -194,7 +194,7 @@ var results = await showCalendarDatePicker2Dialog(
 | selectedYearTextStyle            | TextStyle?                        | Custom text style for selected year(s)                                                                        |
 | disabledYearTextStyle            | TextStyle?                        | Custom text style for disabled year(s)                                                                        |
 | selectableYearPredicate          | SelectableYearPredicate?          | Function to provide full control over which year in the year list be selected.                                |
-| yearBuilder                      | YearBuilder?                      | Function to provide full control over year widget UI                                                          |
+| yearBuilder                      | YearBuilder?                      | Function to provide full control over year widget UI. Receives `isYearMode` and `isLongPressing` flags.       |
 | hideYearPickerDividers           | bool?                             | Flag to hide dividers on year picker                                                                          |
 | scrollViewTopHeaderTextStyle     | TextStyle?                        | Custom text style for scroll view top week labels header                                                      |
 | hideScrollViewTopHeader          | bool?                             | Flag to hide top week labels header on scroll view picker                                                     |

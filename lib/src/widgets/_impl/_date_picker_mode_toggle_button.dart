@@ -40,11 +40,13 @@ class _DatePickerModeToggleButtonState
   late MaterialLocalizations _localizations;
   late Locale _locale;
 
+  bool get isMonthOrYearMode =>
+      widget.mode == CalendarDatePicker2Mode.year ||
+      widget.mode == CalendarDatePicker2Mode.month;
+
   @override
   void initState() {
     super.initState();
-    final isMonthOrYearMode = widget.mode == CalendarDatePicker2Mode.year ||
-        widget.mode == CalendarDatePicker2Mode.month;
     _monthController = AnimationController(
       value: isMonthOrYearMode ? 0.5 : 0,
       upperBound: 0.5,
@@ -155,15 +157,20 @@ class _DatePickerModeToggleButtonState
                 button: true,
                 child: SizedBox(
                   height: (widget.config.controlsHeight ?? _subHeaderHeight),
-                  child: InkWell(
-                    onTap: widget.config.disableModePicker == true
-                        ? null
-                        : widget.onYearPressed,
-                    child: widget.config.modePickerBuilder?.call(
-                          viewMode: widget.mode,
-                          monthDate: widget.monthDate,
-                        ) ??
-                        Padding(
+                  child: widget.config.modePickerBuilder?.call(
+                        viewMode: widget.mode,
+                        monthDate: widget.monthDate,
+                        isMonthOrYearMode: isMonthOrYearMode,
+                        onPressed: widget.config.disableModePicker == true
+                            ? null
+                            : widget.onYearPressed,
+                      ) ??
+                      InkWell(
+                        onTap: widget.config.disableModePicker == true
+                            ? null
+                            : widget.onYearPressed,
+                        splashColor: Colors.transparent,
+                        child: Padding(
                           padding: EdgeInsets.symmetric(
                               horizontal: horizontalPadding),
                           child: Row(
@@ -188,7 +195,7 @@ class _DatePickerModeToggleButtonState
                             ],
                           ),
                         ),
-                  ),
+                      ),
                 ),
               ),
             ),
@@ -208,16 +215,21 @@ class _DatePickerModeToggleButtonState
                     child: SizedBox(
                       height:
                           (widget.config.controlsHeight ?? _subHeaderHeight),
-                      child: InkWell(
-                        onTap: widget.config.disableModePicker == true
-                            ? null
-                            : widget.onMonthPressed,
-                        child: widget.config.modePickerBuilder?.call(
-                              viewMode: widget.mode,
-                              monthDate: widget.monthDate,
-                              isMonthPicker: true,
-                            ) ??
-                            Padding(
+                      child: widget.config.modePickerBuilder?.call(
+                            viewMode: widget.mode,
+                            monthDate: widget.monthDate,
+                            isMonthPicker: true,
+                            isMonthOrYearMode: isMonthOrYearMode,
+                            onPressed: widget.config.disableModePicker == true
+                                ? null
+                                : widget.onMonthPressed,
+                          ) ??
+                          InkWell(
+                            onTap: widget.config.disableModePicker == true
+                                ? null
+                                : widget.onMonthPressed,
+                            splashColor: Colors.transparent,
+                            child: Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: horizontalPadding),
                               child: Row(
@@ -248,7 +260,7 @@ class _DatePickerModeToggleButtonState
                                 ],
                               ),
                             ),
-                      ),
+                          ),
                     ),
                   ),
                   SizedBox(
@@ -265,15 +277,19 @@ class _DatePickerModeToggleButtonState
                     child: SizedBox(
                       height:
                           (widget.config.controlsHeight ?? _subHeaderHeight),
-                      child: InkWell(
-                        onTap: widget.config.disableModePicker == true
-                            ? null
-                            : widget.onYearPressed,
-                        child: widget.config.modePickerBuilder?.call(
-                              viewMode: widget.mode,
-                              monthDate: widget.monthDate,
-                            ) ??
-                            Padding(
+                      child: widget.config.modePickerBuilder?.call(
+                            viewMode: widget.mode,
+                            monthDate: widget.monthDate,
+                            isMonthOrYearMode: isMonthOrYearMode,
+                            onPressed: widget.config.disableModePicker == true
+                                ? null
+                                : widget.onYearPressed,
+                          ) ??
+                          InkWell(
+                            onTap: widget.config.disableModePicker == true
+                                ? null
+                                : widget.onYearPressed,
+                            child: Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: horizontalPadding),
                               child: Row(
@@ -298,7 +314,7 @@ class _DatePickerModeToggleButtonState
                                 ],
                               ),
                             ),
-                      ),
+                          ),
                     ),
                   ),
                 ],

@@ -57,13 +57,16 @@ typedef DayBuilder = Widget? Function({
 });
 
 /// Custom builder for the year widget
+///
+/// [isYearMode] flags when the picker is currently showing the year list.
+/// [isLongPressing] is true while a user is long-pressing a particular year cell.
 typedef YearBuilder = Widget? Function({
   required int year,
   TextStyle? textStyle,
   BoxDecoration? decoration,
   bool? isSelected,
   bool? isDisabled,
-  bool? isCurrentYear,
+  bool? isCurrentYear, 
 });
 
 /// Custom builder for the month widget
@@ -86,6 +89,8 @@ typedef ModePickerBuilder = Widget? Function({
   required CalendarDatePicker2Mode viewMode,
   required DateTime monthDate,
   bool? isMonthPicker,
+  required bool isMonthOrYearMode,
+      VoidCallback? onPressed,
 });
 
 /// Predicate to determine the day widget box decoration for a day in selected range

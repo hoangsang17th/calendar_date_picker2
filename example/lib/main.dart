@@ -752,6 +752,8 @@ class _MyHomePageState extends State<MyHomePage> {
         required viewMode,
         required monthDate,
         isMonthPicker,
+        required isMonthOrYearMode,
+        onPressed,
       }) {
         return Center(
           child: Container(

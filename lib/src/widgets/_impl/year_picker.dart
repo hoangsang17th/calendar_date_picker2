@@ -20,6 +20,7 @@ class YearPicker extends StatefulWidget {
     required this.selectedDates,
     required this.onChanged,
     required this.initialMonth,
+    required this.viewMode,
     this.dragStartBehavior = DragStartBehavior.start,
     Key? key,
   }) : super(key: key);
@@ -38,6 +39,9 @@ class YearPicker extends StatefulWidget {
   /// The initial month to display.
   final DateTime initialMonth;
 
+  /// Current calendar mode from the parent picker.
+  final CalendarDatePicker2Mode viewMode;
+
   /// {@macro flutter.widgets.scrollable.dragStartBehavior}
   final DragStartBehavior dragStartBehavior;
 
@@ -47,6 +51,7 @@ class YearPicker extends StatefulWidget {
 
 class _YearPickerState extends State<YearPicker> {
   late ScrollController _scrollController;
+  int? _longPressedYear;
 
   // The approximate number of years necessary to fill the available space.
   static const int minYears = 18;
@@ -167,19 +172,39 @@ class _YearPickerState extends State<YearPicker> {
         child: yearItem,
       );
     } else {
-      yearItem = InkWell(
-        key: ValueKey<int>(year),
-        onTap: () => widget.onChanged(
-          DateTime(
-            year,
-            widget.initialMonth.month,
+      yearItem = GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onLongPressStart: (_) => _setLongPressedYear(year),
+        onLongPressEnd: (_) => _clearLongPressedYear(),
+        onLongPressCancel: _clearLongPressedYear,
+        child: InkWell(
+          key: ValueKey<int>(year),
+          onTap: () => widget.onChanged(
+            DateTime(
+              year,
+              widget.initialMonth.month,
+            ),
           ),
+          child: yearItem,
         ),
-        child: yearItem,
       );
     }
 
     return yearItem;
+  }
+
+  void _setLongPressedYear(int year) {
+    if (_longPressedYear == year) return;
+    setState(() {
+      _longPressedYear = year;
+    });
+  }
+
+  void _clearLongPressedYear() {
+    if (_longPressedYear == null) return;
+    setState(() {
+      _longPressedYear = null;
+    });
   }
 
   int get _itemCount {

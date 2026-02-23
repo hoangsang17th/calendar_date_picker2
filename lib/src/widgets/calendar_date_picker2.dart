@@ -343,6 +343,7 @@ class _CalendarDatePicker2State extends State<CalendarDatePicker2> {
             initialMonth: _currentDisplayedMonthDate,
             selectedDates: _selectedDates,
             onChanged: _handleYearChanged,
+            viewMode: _mode,
           ),
         );
       case CalendarDatePicker2Mode.scroll:
