@@ -221,7 +221,7 @@ class _YearPickerState extends State<YearPicker> {
         ),
         Expanded(
           child: GridView.builder(
-            // controller: _scrollController,
+            controller: _scrollController,
             dragStartBehavior: widget.dragStartBehavior,
             gridDelegate: _yearPickerGridDelegate,
             itemBuilder: _buildYearItem,
